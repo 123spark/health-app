@@ -1,0 +1,114 @@
+import java.io 
+
+.BufferedReader;
+import java.io 
+
+.File;
+import java.io 
+
+.FileReader;
+import java.io 
+
+.IOException;
+public class HeartRate {
+	static int exception_threshold_last;
+	final static int MAXSIZE=6000;
+	static double[] heartrate=new double[MAXSIZE];	//心率数据
+	public static void main(String[] args) {
+		int length;  		//一次输入的心率数据长度
+		File datadir=new File("D:"+File.separator+"data.txt");
+		length=getandprocessData(heartrate,datadir);
+		/*for(int i=0;i<length;i++)
+			System.out.println(heartrate[i]);*/
+	}
+
+	public static int getandprocessData(double[] heartrate,File file){		//获取并实时处理心率数据
+		double bpm;			//每分钟心跳数
+		int[] Peaks=new int[1000];			//波峰波谷下标
+		int[] R_Peaks=new int[200];			//R波峰下标
+		int[] R_interval=new int[60];
+		int start=0,R_count=0;
+		int p=0;			//波峰的下标
+		int frequency=100;  //采样频率
+		int length=0;		//数据长度
+		double ave_interval=0;//max_interval,min_interval;       //R峰间的平均距离
+		String s;
+		try{
+		FileReader fr=new FileReader(file);
+		BufferedReader br=new BufferedReader(fr);
+		while((s=br.readLine())!=null){
+			heartrate[start]=Double.parseDouble(s);
+			if(start>=2){
+				if(heartrate[start]==heartrate[start-1])
+					heartrate[start-1]=(heartrate[start]+heartrate[start-2])/2;
+				if(heartrate[start-2]<heartrate[start-1]&&heartrate[start]<heartrate[start-1]){
+					Peaks[p]=start-1;
+					if(heartrate[Peaks[p]]>700){
+						R_Peaks[R_count]=Peaks[p];
+						R_count++;
+					}
+					p++;
+				}
+				if(heartrate[start-2]>heartrate[start-1]&&heartrate[start]>heartrate[start-1]){
+					Peaks[p]=start-1;
+					p++;
+				}
+			}
+			start++;
+		}
+		for(int i=1;i<p-1;i++){
+			if(Math.abs(heartrate[Peaks[i]]-heartrate[Peaks[i-1]])<5&&Math.abs(heartrate[Peaks[i]]-heartrate[Peaks[i+1]])<5){
+                heartrate[Peaks[i]]=(heartrate[Peaks[i-1]]+heartrate[Peaks[i+1]])/2;
+                for(int j=Peaks[i-1]+1;j<Peaks[i];j++){
+                    heartrate[j]=(heartrate[j-1]+heartrate[Peaks[i]])/2;
+                }
+                for(int j=Peaks[i]+1;j<Peaks[i+1];j++){
+                    heartrate[j]=(heartrate[j-1]+heartrate[Peaks[i+1]])/2;
+                }
+                if(Math.abs(heartrate[Peaks[i-1]])>=Math.abs(heartrate[Peaks[i+1]])){
+                    for(int j=i+1;j<p-1;j++)
+                    	Peaks[j-1]=Peaks[j+1];
+                    p=p-2;
+                }
+                else if(Math.abs(heartrate[Peaks[i-1]])<Math.abs(heartrate[Peaks[i+1]])){
+                    for(int j=i;j<p-1;j++)
+                    	Peaks[j-1]=Peaks[j+1];
+                    p=p-2;
+                }
+                if(i>1)
+                    i=i-2;
+                else
+                    i=i-1;
+            }
+            else if(Math.abs(heartrate[Peaks[i]]-heartrate[Peaks[i-1]])<5&&Math.abs(heartrate[Peaks[i]]-heartrate[Peaks[i+1]])>5){
+            	heartrate[Peaks[i]]=(heartrate[Peaks[i-1]]+heartrate[Peaks[i+1]])/2;
+                for(int j=Peaks[i-1]+1;j<Peaks[i];j++){
+                	heartrate[j]=(heartrate[j-1]+heartrate[Peaks[i]])/2;
+                }
+                for(int j=Peaks[i]+1;j<Peaks[i+1];j++){
+                	heartrate[j]=(heartrate[j-1]+heartrate[Peaks[i+1]])/2;
+                }
+                for(int j=i;j<p-1;j++)
+                	Peaks[j-1]=Peaks[j+1];
+                p=p-2;
+                if(i>1)
+                    i=i-2;
+                else
+                    i=i-1;
+            }
+        }
+		length=start;
+		for(int i=0;i<R_count-1;i++){
+			R_interval[i]=R_Peaks[i+1]-R_Peaks[i];
+		}
+		for(int i=0;i<R_count-1;i++){
+			ave_interval+=R_interval[i];
+		}
+		ave_interval=(ave_interval/frequency)*1000;
+		bpm=60000*(R_count-1)/ave_interval;
+		System.out.println(bpm);
+		}catch(IOException e){e.printStackTrace();}
+		return length;
+	}
+
+}
