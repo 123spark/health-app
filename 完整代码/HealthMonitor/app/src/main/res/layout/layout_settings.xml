@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <LinearLayout
+            android:layout_width="151dp"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <ImageView
+            android:layout_width="115dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/touxiang" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_weight="0.25
+"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名:"
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="154dp"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <TextView
+            android:id="@+id/name_show"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="25dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_weight="0.25"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="性别:"
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="154dp"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <TextView
+            android:id="@+id/gender_show"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_weight="0.25">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="年龄:"
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="154dp"
+            android:layout_height="match_parent"></LinearLayout>
+
+        <TextView
+            android:id="@+id/age_show"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:text=""
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_weight="0.25">
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="身体状况"
+            android:textSize="20dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.25">
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8.5"
+        android:text="(xxx
+
+
+                                                         xxx)"
+        android:textSize="25dp"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.healthmonitor.MainActivity"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0.11">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:text="第一步"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="      China+86     "/>
+
+        <EditText
+            android:id="@+id/PhoneText"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:hint="电话号码" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/R2View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.04"
+        android:text="" />
+
+    <Button
+        android:id="@+id/conti_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一步"/>
+
+
+
+
+</LinearLayout>

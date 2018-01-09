@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_devices"
+        android:icon="@drawable/shebei"
+        android:title="设备" />
+
+    <item
+        android:id="@+id/navigation_analysis"
+        android:icon="@drawable/ceshi"
+        android:title="心率测试" />
+
+    <item
+        android:id="@+id/navigation_finder"
+        android:icon="@drawable/faxian"
+        android:title="发现设备" />
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/xinxi"
+        android:title="个人信息" />
+
+</menu>

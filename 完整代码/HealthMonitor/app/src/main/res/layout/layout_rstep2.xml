@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    tools:context="com.example.administrator.healthmonitor.MainActivity"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_weight="0.11">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"
+        android:text="第二步"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/NickNameText"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:hint="输入您的昵称" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/hint2view"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/NickNameView"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:text="这将会是你的昵称"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/PasswordText"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:hint="请输入密码" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/hint1view"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/PasswordView"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:text="密码长度不小于八位" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <EditText
+            android:id="@+id/AgeText"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:hint="年龄" />
+        <TextView
+            android:id="@+id/AgeView"
+            android:layout_width="265dp"
+            android:layout_height="wrap_content"
+            android:text="请输入您的年龄"/>
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="提交信息"/>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/item_qiehuan"
+        android:title="切换账号"
+        />
+
+    <!--<item
+        android:id="@+id/item_shezhi"
+        android:title="设置"
+        />-->
+    <item
+        android:id="@+id/item_zhuxiao"
+        android:title="注销"
+    />
+
+</menu>
